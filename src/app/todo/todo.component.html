@@ -1,1 +1,13 @@
-<p>todo works!</p>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h3>To-Do App</h3>
+    <input type="text" name="itemName" id="itemId">
+    <button class="btn btn-primary">Add</button>
+  </div>
+  <br>
+  <div class="container">
+    <div *ngFor="let item of todoList$ | async">
+      {{item.name}}
+    </div>
+  </div>
+</section>
