@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoList } from 'src/app/todo/model/todolist.model';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo',
@@ -53,11 +53,17 @@ export class TodoComponent implements OnInit {
   }
 
   addItem(name: string) {
-    // this.todoList$ = this.todoList$.
-    //   pipe(
-    //     map(val => {
-    //       return {...val,}
-    //     })
-    //   )
+    // TODO: PR Instead of hardcoding generate id by closure
+    const freshItem = {
+      id: 100,
+      name,
+      isCompleted: false
+    };
+    this.todoList$ = this.todoList$.
+      pipe(
+        map(val => {
+          return [...val, freshItem];
+        }),
+      );
   }
 }
