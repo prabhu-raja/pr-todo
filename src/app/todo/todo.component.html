@@ -1,13 +1,17 @@
 <section class="jumbotron text-center">
   <div class="container">
     <h3>To-Do App</h3>
-    <input type="text" name="itemName" id="itemId">
-    <button class="btn btn-primary">Add</button>
+    <input type="text" #todoText>
+    <button
+      class="btn btn-primary"
+      (click)="addItem(todoText.value)">
+      Add
+    </button>
   </div>
   <br>
   <div class="container">
     <div *ngFor="let item of todoList$ | async">
-      {{item.name}}
+      <app-todo-item [taskItem]="item"></app-todo-item>
     </div>
   </div>
 </section>

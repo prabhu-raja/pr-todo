@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoList } from 'src/app/todo/model/todolist.model';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo',
@@ -25,7 +26,7 @@ export class TodoComponent implements OnInit {
       {
         id: 102,
         name: 'Swimming Class Enquiry🏊‍♂️',
-        isCompleted: false
+        isCompleted: true
       },
       {
         id: 103,
@@ -45,9 +46,18 @@ export class TodoComponent implements OnInit {
       {
         id: 106,
         name: 'Car Wash 🚗',
-        isCompleted: false
+        isCompleted: true
       }
     ];
     return of(allItems);
+  }
+
+  addItem(name: string) {
+    // this.todoList$ = this.todoList$.
+    //   pipe(
+    //     map(val => {
+    //       return {...val,}
+    //     })
+    //   )
   }
 }

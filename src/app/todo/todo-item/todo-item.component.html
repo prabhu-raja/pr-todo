@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-6">
+    <p class="float-right">{{taskItem.name}}</p>
+  </div>
+  <div class="col-6">
+    <input
+      type="checkbox"
+      name="completed"
+      id="completed"
+      class="float-left"
+      [checked]="taskItem.isCompleted">
+  </div>
+</div>
